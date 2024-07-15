@@ -10,16 +10,20 @@ export const Notas = () => {
 
     const agregarNota = () => {
         const nuevaNota = {
+            id: notas,
             titulo: tituloRef.current.value,
             descripcion: descricionRef.current.value,
             importante: esImportante
         };
         console.log(nuevaNota);
         setNotas([...notas, nuevaNota]);
-       
+        // alert("se agrego una nota")
+        
+        //para limpiar
         tituloRef.current.value = '';
         descricionRef.current.value = '';
         setEsImportante(false);
+
     }
     
     // para saber si es true o false
@@ -32,11 +36,16 @@ export const Notas = () => {
             setEsImportante(false);
         }
     }
+    // eliminar mota
+    const eliminarNota = (id) => {
+        const nuevasNotas = notas.filter(nota => nota.id !== id);
+        setNotas(nuevasNotas);
+        // alert("se elimino una nota")
+    };
     
     
     
-    // alert("agrego una nota nueva")
-
+    
     return(
         <div className="principal">
             <h1>Post It Simulator</h1>
@@ -51,7 +60,7 @@ export const Notas = () => {
             </label> importante
             <button type="submit" onClick={agregarNota}>Agregar Nota</button>
             <div>
-                {notas.map(nota => <NotaNueva key={nota.titulo} nota={nota}/>)}
+                {notas.map(nota => <NotaNueva key={nota.id} nota={nota} eliminarNota={eliminarNota}/>)}
             </div>
 
         </div>
