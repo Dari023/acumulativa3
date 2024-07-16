@@ -47,19 +47,24 @@ export const Notas = () => {
     
     
     return(
-        <div className="principal">
-            <h1>Post It Simulator</h1>
-            <div>
-                <input ref={tituloRef} type="text" placeholder="titulo"/>
+        <div>
+            <h1 className="titulo">Post It Simulator</h1>
+            <div className="principal">
+                <div className="tides">
+                    <input ref={tituloRef} type="text" placeholder="titulo"/>
+                    <input className="segun2" ref={descricionRef} type="text" placeholder="descricion"/>
+                </div>
+                <div className="impor">
+                    <label>
+                        <input className="form-check-input" type="checkbox" checked={esImportante} onChange={importanteSioNO}/>
+                    </label> importante
+                </div>
+                   
+                <div className="agrenote">
+                    <button className="btn btn-dark" type="submit" onClick={agregarNota}>Agregar</button>
+                </div>
             </div>
-            <div>
-                <input ref={descricionRef} type="text" placeholder="descricion"/>
-            </div>
-            <label>
-                <input type="checkbox" checked={esImportante} onChange={importanteSioNO}/>
-            </label> importante
-            <button type="submit" onClick={agregarNota}>Agregar Nota</button>
-            <div>
+            <div className="contenedor">
                 {notas.map(nota => <NotaNueva key={nota.id} nota={nota} eliminarNota={eliminarNota}/>)}
             </div>
 

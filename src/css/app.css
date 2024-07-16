@@ -6,3 +6,74 @@
 .nota-Noimportante{
     background-color: #FFFFCC;
 }
+
+body{
+    background-color: #666;
+}
+
+.titulo{
+    position: relative;
+    left: 13rem;
+    font-size: 3.5rem;
+}
+
+.principal{
+    display: flex;
+    padding: 0 13rem;
+    gap: 4rem;
+    
+}
+.tides input{
+   margin: 0 2rem 0 0;
+   width: 18rem;
+}
+
+.impor{
+    position: relative;
+    right: 4rem;
+    color: #FFFFCC;
+}
+
+.agrenote button{
+    width: 18rem;
+}
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 14rem;
+    padding-right: 8rem;
+}
+
+.nota{
+    
+    display: block;
+    width: 19rem;
+    height: 19rem;
+    border: 1px solid #111 ;
+    padding: 2rem;
+    margin: 2rem;
+    
+}
+
+
+.nota button {
+    background-color: transparent;
+    border: none;
+    position: relative;
+    left: 15.3rem;
+    bottom: 2rem;
+    cursor: pointer;
+    
+}
+.contenido{
+    margin-top: -3rem;
+}
+.contenido h2{
+    font-size: 2rem;
+    
+}
+
+.contenido p{
+    font-size: 1rem;
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+}
