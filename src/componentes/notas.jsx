@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { NotaNueva } from "./notanueva";
 import "../css/app.css"
 
@@ -7,6 +7,7 @@ export const Notas = () => {
     const descricionRef = useRef();
     const [esImportante, setEsImportante] = useState(false);
     const [notas, setNotas] = useState([]);
+    const key = "localstorage"
 
     const agregarNota = () => {
         const nuevaNota = {
@@ -25,6 +26,17 @@ export const Notas = () => {
         setEsImportante(false);
 
     }
+
+    useEffect(()=>{
+        const stored = JSON.parse(localStorage.getItem(key))
+        if (stored) {
+            setNotas(stored)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem(key, JSON.stringify(notas))
+    },[notas])
     
     // para saber si es true o false
     const importanteSioNO = (event) => {
