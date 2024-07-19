@@ -10,12 +10,28 @@ export const Notas = () => {
     const key = "localstorage"
 
     const agregarNota = () => {
+
+        // const titulo = tituloRef.current.value;
+        const descripcion = descricionRef.current.value;
+    
+        // if (titulo === "" && descripcion === "") {
+        //     alert("Los campos están vacíos");
+        //     return
+        // } else if (titulo === "") {
+        //     alert("El título está vacío");
+        //     return
+        if (descripcion === "") {
+            alert("La descripción es obligatoria");
+            return
+        }
         const nuevaNota = {
             id: notas,
             titulo: tituloRef.current.value,
             descripcion: descricionRef.current.value,
             importante: esImportante
         };
+        
+        
         console.log(nuevaNota);
         setNotas([...notas, nuevaNota]);
         // alert("se agrego una nota")
